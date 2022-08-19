@@ -15,9 +15,9 @@ export const HomePage = () => {
     const fetchAllBooks = async() => {
         await getAll().then((books) => {
           setAllBooks(books)
-          setCurrentlyReadingBooks(books?.filter((book) => book?.shelf == "currentlyReading"))
-          setWantToReadBooks(books?.filter((book) => book?.shelf == "wantToRead"))
-          setReadBooks(books?.filter((book) => book?.shelf == "read"))
+          setCurrentlyReadingBooks(books?.filter((book) => book?.shelf === "currentlyReading"))
+          setWantToReadBooks(books?.filter((book) => book?.shelf === "wantToRead"))
+          setReadBooks(books?.filter((book) => book?.shelf === "read"))
         })
       }
       

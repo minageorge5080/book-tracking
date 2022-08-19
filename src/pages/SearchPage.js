@@ -18,9 +18,12 @@ export const SearchPage = () => {
       
     const queryValueChange = async(query) => {
       await search(query, 20).then((booksResults) => {
+        
       booksResults?.forEach((book) => {
           if(myBooks?.map(e => e.id)?.includes(book.id) === true){
             book.shelf = myBooks?.find(e => e.id === book.id)?.shelf
+          } else {
+            book.shelf = "none"
           }
         });
   
@@ -42,10 +45,10 @@ export const SearchPage = () => {
     return (
       <div className="search-books">
           <div className="search-books-bar">
-            <a className="close-search"
+            <button className="close-search"
                onClick={() => navigate(-1)}>
                 Close
-            </a>
+            </button>
             <div className="search-books-input-wrapper">
               <input
                 type="text"
